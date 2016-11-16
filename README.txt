@@ -6,3 +6,4 @@ commit 3 - added mongoose for database implementation
 
 commit 4 - added basic pages
 
+commit 5 - added header and footer and added connection
