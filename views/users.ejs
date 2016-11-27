@@ -1,11 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
-</html>
+<!-- /* Name: users.ejs */
+/* Author: Zac Force */
+/* Website Name: Business Directory */
+/* File Description: display a read-only list of users */ -->
+
+<% include partials/header.ejs %>
+
+<h1><%= title %></h1>
+<table class="table table-striped">
+  <tr>
+    <th>Username</th>
+    <th>User ID</th>
+  </tr>
+  <!-- loop through the list and display a full list of users in a table -->
+  <% for (var i=0; i < users.length; i++) { %>
+    <tr>
+      <td><%= users[i].username %></td>
+      <td><%= users[i]._id %></td>
+  </tr>
+  <% } %>
+</table>
+<% include partials/footer.ejs %>

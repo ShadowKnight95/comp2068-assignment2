@@ -1,0 +1,28 @@
+<!-- /* Name: view-businesses.ejs */
+/* Author: Zac Force */
+/* Website Name: Business Directory */
+/* File Description: create a table of businesses that is read-only */ -->
+
+<% include partials/header.ejs %>
+
+<h1><%= title %></h1>
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Owner</th>
+    <th>Year Established</th>
+    <th>Type of Business</th>
+    <th>Provides Free Wifi</th>
+  </tr>
+  <!-- loop throuh and fill the table with the full list of users -->
+  <% for (var i=0; i < businesses.length; i++) { %>
+    <tr>
+      <td><%= businesses[i].name %></td>
+      <td><%= businesses[i].owner %></td>
+      <td><%= businesses[i].year %></td>
+      <td><%= businesses[i].bType %></td>
+      <td><%= businesses[i].wifi %></td>
+  </tr>
+  <% } %>
+</table>
+<% include partials/footer.ejs %>

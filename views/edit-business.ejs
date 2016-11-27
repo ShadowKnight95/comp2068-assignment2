@@ -1,0 +1,40 @@
+<!-- /* Name: edit-businesses.ejs */
+/* Author: Zac Force */
+/* Website Name: Business Directory */
+/* File Description: edits an existing business */ -->
+
+<% include partials/header.ejs %>
+
+<h1>Business Details</h1>
+
+<!-- fills the form with the business info and allows users to change the info and save -->
+<form method="post">
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name:</label>
+    <input name="name" id="name" required
+           value="<%= business.name %>" />
+  </div>
+  <div class="form-group">
+    <label for="owner" class="col-sm-2 control-label">Owner:</label>
+    <input name="owner" id="owner"
+           value="<%= business.owner %>" />
+  </div>
+  <div class="form-group">
+    <label for="year" class="col-sm-2 control-label">Year Established:</label>
+    <input name="year" id="year" required type="number" max="2016" 
+            value="<%= business.year %>" />
+  </div>
+  <div class="form-group">
+    <label for="bType" class="col-sm-2 control-label">Type of Business:</label>
+    <input name="bType" id="bType" required
+            value="<%= business.bType %>"/>
+  </div>
+  <div class="form-group">
+    <label for="wifi" class="col-sm-2 control-label">Provides Free Wifi:</label>
+    <input name="wifi" id="wifi" required
+            value="<%= business.wifi %>"/>
+  </div>
+  <!-- save changed info only if all the fields are filled in -->
+  <button class="btn btn-success col-sm-offset-2">Save</button>
+</form>
+<% include partials/footer.ejs %>

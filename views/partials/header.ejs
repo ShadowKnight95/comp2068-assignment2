@@ -1,6 +1,12 @@
+<!-- /* Name: header.ejs */
+/* Author: Zac Force */
+/* Website Name: Business Directory */
+/* File Description: creates the start of each html page the style sheets to go with it */ -->
+
 <!DOCTYPE html>
 <html>
 <head>
+    <!-- create nav bar -->
     <title><%= title %></title>
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css" />
@@ -9,22 +15,24 @@
     <nav class="navbar navbar-default">
         <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
+            <li><a href="/view-businesses">Businesses</a></li>
+            <!-- only show if user is logged in -->
             <% if (user) { %>
-                <li><a href="/other">Other</a></li>
+                <li><a href="/businesses">Edit Businesses</a></li>
                 <li><a href="/users">Users</a></li>
                 <li><a href="/logout">Logout</a></li>
-                
-
             <% }
             else { %>
+            <!-- show if the user is logged out only -->
                 <li><a href="/register">Register</a></li>
                 <li><a href="/login">Login</a></li>
             <% } %>
         </ul>
         
+        <!-- welcome the user when logged in -->
         <% if (user) { %>
             <div class="navbar-text pull-right"><%= user.username%>
-            Welcome Test
+            Welcome
             </div>
         <% } %>
     </nav>
