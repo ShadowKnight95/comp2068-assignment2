@@ -8,24 +8,35 @@
 <head>
     <!-- create nav bar -->
     <title><%= title %></title>
+    <!-- Boot strap css -->
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
     <link rel="stylesheet" href="/stylesheets/bootstrap-theme.min.css" />
+    <!-- w3schools css -->
+    <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-navbar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-default">
-        <ul class="nav navbar-nav">
-            <li><a href="/">Home</a></li>
-            <li><a href="/view-businesses">Businesses</a></li>
+    <nav class="w3-top">
+        <ul class="w3-navbar w3-red w3-card-2 w3-left-align w3-large">
+            <li class="w3-hide-small"><a href="/" class="w3-padding-large w3-hover-white">Home</a></li>
+            <li class="w3-hide-small"><a href="/view-businesses" class="w3-padding-large w3-hover-white">Businesses</a></li>
             <!-- only show if user is logged in -->
             <% if (user) { %>
-                <li><a href="/businesses">Edit Businesses</a></li>
-                <li><a href="/users">Users</a></li>
-                <li><a href="/logout">Logout</a></li>
+                <li class="w3-hide-small"><a href="/businesses" class="w3-padding-large w3-hover-white">Edit Businesses</a></li>
+                <li class="w3-hide-small"><a href="/users" class="w3-padding-large w3-hover-white">Users</a></li>
+                <li class="w3-hide-small"><a href="/logout" class="w3-padding-large w3-hover-white">Logout</a></li>
             <% }
             else { %>
             <!-- show if the user is logged out only -->
-                <li><a href="/register">Register</a></li>
-                <li><a href="/login">Login</a></li>
+                <li class="w3-hide-small"><a href="/register" class="w3-padding-large w3-hover-white">Register</a></li>
+                <li class="w3-hide-small"><a href="/login" class="w3-padding-large w3-hover-white">Login</a></li>
             <% } %>
         </ul>
         

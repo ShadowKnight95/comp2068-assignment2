@@ -4,9 +4,11 @@
 /* File Description: adds a business to the list after taking in all of the required info */ -->
 
 <% include partials/header.ejs %>
-
-<h1>Business Details</h1>
+<div class="w3-padding-64">
+  <h1>Business Details</h1>
+</div>
 <!-- add a business form -->
+<div class="">
 <form method="post">
   <div class="form-group">
     <label for="name" class="col-sm-2 control-label">Name:</label>
@@ -30,4 +32,5 @@
   </div>
   <button class="btn btn-success col-sm-offset-2">Add</button>
 </form>
+</div>
 <% include partials/footer.ejs %>

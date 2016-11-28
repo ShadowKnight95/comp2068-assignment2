@@ -14,7 +14,7 @@ var passport = require('passport');
 router.get('/', function(req, res, next) {
   res.render('index', {
     title: 'Business Directory',
-    message: 'This is my business directory. It shows all of the available businesses registered on this website.',
+    message: 'This is my business directory. It shows all of the available businesses registered on this website. You may view the registered businesses with the business tab or you may create an account and add your own business to the site today!',
     user: req.user
   });
 });

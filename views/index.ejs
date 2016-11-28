@@ -4,9 +4,25 @@
 /* File Description: The home page of the website */ -->
 
 <% include partials/header.ejs %>
-<!-- main page info -->
-  <h1><%= title %></h1>
-  <p>Welcome to <%= title %></p>
-  <p><%= message%></p>
+  <!-- main page info -->
+  <div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-twothird">
+        <div class="w3-padding-64">
+          <h1><%= title %></h1>
+        </div>
+        <p class="w3-text-grey">Welcome to the
+          <%= title %>
+        </p>
+        <p class="w3-padding-32">
+          <%= message%>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+    <h1 class="w3-margin w3-xlarge">Get your businesses registered today!</h1>
+</div>
 
-<% include partials/footer.ejs %>
+  <% include partials/footer.ejs %>

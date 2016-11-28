@@ -7,7 +7,7 @@ module.exports = {
 	secret: 'zzz',
 	ids: {
 		facebook: {
-			clientID: '1650675338559143',
+			clientID: '1828889264056843',
 			clientSecret: '21e9291b052a4af337e4356655624e40',
 			callbackURL: 'http://localhost:3000/facebook/callback'
 		}
