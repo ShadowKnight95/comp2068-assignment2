@@ -5,11 +5,12 @@
 module.exports = {
 	db: 'mongodb://admin:password@ds143767.mlab.com:43767/comp2068',
 	secret: 'zzz',
+	
 	ids: {
-		facebook: {
-			clientID: '1828889264056843',
-			clientSecret: '21e9291b052a4af337e4356655624e40',
-			callbackURL: 'http://localhost:3000/facebook/callback'
-		}
+				github: {
+				clientID: 'bf421d6792068728a991',
+				clientSecret: 'c9cd9e31f55fd6fb83b084ac6f0bfc1745a66d02',
+				callbackURL: 'http://localhost:3000/github/callback'
+			}
 	}
 };

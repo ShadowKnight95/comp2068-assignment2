@@ -93,17 +93,19 @@ router.get('/logout', function(req, res, next) {
   req.logout();
   res.redirect('/login');
 });
-// get /facebook
-router.get('/facebook', passport.authenticate('facebook'),
+
+// get /github
+router.get('/github', passport.authenticate('github'),
 function(req, res, next){
 });
 
-//get /facebook/callback
-router.get('/facebook/callback', passport.authenticate('facebook', {
+//get /github/callback
+router.get('/github/callback', passport.authenticate('github', {
   failureRedirect: '/login',
   failureMessage: 'Invalid Login'
 }), function(req, res, next){
-  //show the home page
-  res.redirect('/');
+  //show the businesses page
+  res.redirect('/businesses');
 });
+
 module.exports = router;
