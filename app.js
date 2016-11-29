@@ -40,43 +40,47 @@ app.use(passport.session());
 var Account = require('./models/account');
 passport.use(Account.createStrategy());
 
-//github auth config
+// github auth configuration
 var githubStrategy = require('passport-github').Strategy;
 
 passport.use(new githubStrategy({
-  clientID: config.ids.github.clientID,
-  clientSecret: config.ids.github.clientSecret,
-  callbackURL: config.ids.github.callbackURL
+      clientID: config.ids.github.clientID,
+      clientSecret: config.ids.github.clientSecret,
+      callbackURL: config.ids.github.callbackURL
 },
-function(accessToken, refreshToken, profile, cb){
-  //check if mongodb already has this user
-  Account.findOne({ oauthID: profile.id }), function(err,user){
-    if(err) {
+function(accessToken, refreshToken, profile, cb)
+{
+  // check if mongodb already has this user
+  Account.findOne({ oauthID: profile.id }, function(err, user) {
+    if (err) {
       console.log(err);
     }
-    else{
-      if(user !== null){
-        //this user is already registered via github, so continue
+    else {
+      if (user !== null) {
+        // this user has already registered via github, so continue
         cb(null, user);
       }
-      else{
-        //user is new, so save them to accounts collection
+      else {
+        // user is new to us, so save them to accounts collection
         user = new Account({
           oauthID: profile.id,
           username: profile.username,
           created: Date.now()
-        }), user.save(function(err){
-          if(err){
+        });
+
+        user.save(function(err) {
+          if (err) {
             console.log(err);
           }
-          else{
+          else {
             cb(null, user);
           }
         });
       }
     }
-  }
+  });
 }));
+
 
 // manage sessions through the db
 passport.serializeUser(Account.serializeUser());
