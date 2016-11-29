@@ -10,7 +10,7 @@ module.exports = {
 				github: {
 				clientID: 'bf421d6792068728a991',
 				clientSecret: 'c9cd9e31f55fd6fb83b084ac6f0bfc1745a66d02',
-				callbackURL: 'http://localhost:3000/github/callback'
+				callbackURL: 'https://assignment2-200314576.herokuapp.com/github/callback'
 			}
 	}
 };
