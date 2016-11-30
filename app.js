@@ -56,11 +56,11 @@ function(accessToken, refreshToken, profile, cb){
     }
     else {
       if (user !== null) {
-        // this user has already registered via github, so continue
+        // the user has already registered via github
         cb(null, user);
       }
       else {
-        // user is new to us, so save them to accounts collection
+        // save user to accounts collection
         user = new Account({
           oauthID: profile.id,
           username: profile.username,
@@ -95,11 +95,11 @@ function(accessToken, refreshToken, profile, cb){
     }
     else {
       if (user !== null) {
-        // this user has already registered via twitter, so continue
+        // the user has already registered via twitter
         cb(null, user);
       }
       else {
-        // user is new to us, so save them to accounts collection
+        //save user to accounts collection
         user = new Account({
           oauthID: profile.id,
           username: profile.username,
