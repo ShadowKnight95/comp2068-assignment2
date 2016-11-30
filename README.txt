@@ -17,3 +17,7 @@ commit 8 - added github login authentication
 commit 9 - touched up the web page
 
 commit 10 - fixed the login issues
+
+commit 11 - added twitter login
+
+commit 12 - fixed twitter login button size
