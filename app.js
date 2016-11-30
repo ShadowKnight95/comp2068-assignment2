@@ -48,8 +48,7 @@ passport.use(new githubStrategy({
       clientSecret: config.ids.github.clientSecret,
       callbackURL: config.ids.github.callbackURL
 },
-function(accessToken, refreshToken, profile, cb)
-{
+function(accessToken, refreshToken, profile, cb){
   // check if mongodb already has this user
   Account.findOne({ oauthID: profile.id }, function(err, user) {
     if (err) {
@@ -67,7 +66,45 @@ function(accessToken, refreshToken, profile, cb)
           username: profile.username,
           created: Date.now()
         });
+        user.save(function(err) {
+          if (err) {
+            console.log(err);
+          }
+          else {
+            cb(null, user);
+          }
+        });
+      }
+    }
+  });
+}));
 
+// twitter auth configuration
+var twitterStrategy = require('passport-twitter').Strategy;
+
+passport.use(new twitterStrategy({
+    consumerKey: config.ids.twitter.consumerKey,
+    consumerSecret: config.ids.twitter.consumerSecret,
+    callbackURL: config.ids.twitter.callbackURL
+  },
+function(accessToken, refreshToken, profile, cb){
+  // check if mongodb already has this user
+  Account.findOne({ oauthID: profile.id }, function(err, user) {
+    if (err) {
+      console.log(err);
+    }
+    else {
+      if (user !== null) {
+        // this user has already registered via twitter, so continue
+        cb(null, user);
+      }
+      else {
+        // user is new to us, so save them to accounts collection
+        user = new Account({
+          oauthID: profile.id,
+          username: profile.username,
+          created: Date.now()
+        });
         user.save(function(err) {
           if (err) {
             console.log(err);

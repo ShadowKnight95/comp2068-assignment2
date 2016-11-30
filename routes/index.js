@@ -108,4 +108,18 @@ router.get('/github/callback', passport.authenticate('github', {
   res.redirect('/businesses');
 });
 
+// get /twitter
+router.get('/twitter', passport.authenticate('twitter'),
+function(req, res, next){
+});
+
+//get /twitter/callback
+router.get('/twitter/callback', passport.authenticate('twitter', {
+  failureRedirect: '/login',
+  failureMessage: 'Invalid Login'
+}), function(req, res, next){
+  //show the businesses page
+  res.redirect('/businesses');
+});
+
 module.exports = router;

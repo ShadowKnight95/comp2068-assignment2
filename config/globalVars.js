@@ -11,6 +11,11 @@ module.exports = {
 				clientID: 'bf421d6792068728a991',
 				clientSecret: 'c9cd9e31f55fd6fb83b084ac6f0bfc1745a66d02',
 				callbackURL: 'https://assignment2-200314576.herokuapp.com/github/callback'
+			},
+			twitter: {
+				consumerKey: '923CusIkEKoK0j1l5i6WcesoG',
+    			consumerSecret: 'UtZvQP1dSv3DVflClVx4ucYlBdgqrCKA5UBVviLPRLhQCJfTJN',
+    			callbackURL: "https://assignment2-200314576.herokuapp.com/twitter/callback"
 			}
 	}
 };
